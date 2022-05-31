@@ -56,7 +56,7 @@ let addImage = document.getElementById('carousel');
 let newImage = AddImg()
 
 
-carouselArr.push(new Carousel("imagem_1.jpg","Esta é a nova Ranger Ford 2022. Verifique novidades.","lancamento.html"));
+/*carouselArr.push(new Carousel("imagem_1.jpg","Esta é a nova Ranger Ford 2022. Verifique novidades.","lancamento.html"));
 carouselArr.push(new Carousel("imagem_2.jpg","Ford a nossa história","#"));
 carouselArr.push(new Carousel("imagem_3.jpg","Nova Ford Bronco Sport 2022","lancamento.html"))
-console.log(carouselArr);
+console.log(carouselArr);*/
