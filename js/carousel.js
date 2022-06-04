@@ -12,10 +12,25 @@ class Carousel {
     title;
     url;
 
-    constructor(image, title, url){
+    constructor(image, title, url) {
         this.image = image;
         this.title = title;
         this.url = url;
+    }
+
+    static createElements(){
+
+        // Creating the elements link and img
+        this.linkElement = document.createElement("a");
+        this.imgElement = document.createElement("img");
+    
+        // Taking the html elements
+        this.carouselElement = document.getElementById('carousel');
+        this.carouselTitleElement = document.getElementById('carousel-title');
+    
+        // Adding the elements created in the 'carousel' and 'carousel-title'
+        this.carouselElement.appendChild(this.imgElement);
+        this.carouselTitleElement.appendChild(this.linkElement);
     }
 
     static Start(arr) {
@@ -24,8 +39,9 @@ class Carousel {
             if (arr.length > 0) {
                 Carousel._sequence = 0;
                 Carousel._size = arr.length;
+                Carousel.createElements();
                 Carousel.Next(); //start
-                Carousel._interval = setInterval(function () { Carousel.Next(); }, 5000);
+                Carousel._interval = setInterval(function () { Carousel.Next(); }, 2000);
             }
 
         } else {
@@ -34,29 +50,15 @@ class Carousel {
     }
 
     static Next() {
-        for(let i = 0; i < Carousel._size; i++){
-            carouselArr[i];
-        }
+        let index = this._sequence++ % this._size;
+        this.linkElement.href = carouselArr[index].url;
+        this.linkElement.textContent = carouselArr[index].title;
+        this.imgElement.src = "img/" + carouselArr[index].image;
+        
+        // Applying style to the img element
+        this.imgElement.style.width = '500px';
+        this.imgElement.style.height = '300px';
+        this.imgElement.style.display = 'block';
+        this.imgElement.style.margin = '0px auto';
     }
 }
-
-
-function AddImg(carouselArr){
-    let link = document.createElement("a");
-    link.href = Carousel.url;
-    
-    let img = document.createElement("img");
-    img.src = "img/" + Carousel.image;
-    img.title = Carousel.title;
-    
-    link.textContent = img;
-}
-
-let addImage = document.getElementById('carousel');
-let newImage = AddImg()
-
-
-/*carouselArr.push(new Carousel("imagem_1.jpg","Esta é a nova Ranger Ford 2022. Verifique novidades.","lancamento.html"));
-carouselArr.push(new Carousel("imagem_2.jpg","Ford a nossa história","#"));
-carouselArr.push(new Carousel("imagem_3.jpg","Nova Ford Bronco Sport 2022","lancamento.html"))
-console.log(carouselArr);*/

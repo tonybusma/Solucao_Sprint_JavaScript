@@ -48,9 +48,9 @@ botao.addEventListener("click", function(event){
 function Transicao(){
     botao.style.background = "white";
     botao.style.border = "#1351d8 solid 2px";
-    botao.style.width = "240px";
-    botao.style.height = "45px";
-    botao.style.fontSize = "20px";
+    botao.style.width = "215px";
+    botao.style.height = "43px";
+    botao.style.fontSize = "18px";
     botao.style.cursor = "pointer";
     botao.style.color = "#1351d8";
     botao.style.fontWeight = "bold";
